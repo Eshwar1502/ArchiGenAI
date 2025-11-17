@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA</title>
+    <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="header">
+            <h1>NEXA</h1>
+            <p>NextGen Engineered eXpert Architecture <br>Configure your tech stack sequence</p>
+        </div>
+
+        <div class="form-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="dropdowns-container">
+                <div class="dropdown-row first-row">
+                    <div class="form-group">
+                        <label for="Country">Country</label>
+                        <select class="dropdown" id="Country">
+                            <option value="">Select</option>
+                            <option value="None">None</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                        </select>
+                        <span class="checkmark" id="check1">✓</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cloudStack">Cloud Stack</label>
+                        <select class="dropdown" id="cloudStack">
+                            <option value="">Select</option>
+                            <option value="None">None</option>
+                            <option value="AWS">AWS</option>
+                            <option value="Azure">Azure</option>
+                            <option value="GCP">GCP</option>
+                        </select>
+                        <span class="checkmark" id="check2">✓</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Welldefined">Well Defined Use Case</label>
+                        <select class="dropdown" id="Welldefined">
+                            <option value="">Select</option>
+                            <option value="None">None</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                        <span class="checkmark" id="check3">✓</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="involvesML">Involves ML</label>
+                        <select class="dropdown" id="involvesML">
+                            <option value="">Select</option>
+                            <option value="None">None</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                        <span class="checkmark" id="check4">✓</span>
+                    </div>
+                </div>
+
+                <div class="dropdown-row second-row">
+                    <div class="form-group">
+                        <label for="sourceType">Source Type</label>
+                        <select class="dropdown" id="sourceType">
+                            <option value="">Select</option>
+                            <option value="None">None</option>
+                            <option value="Structured">Structured</option>
+                            <option value="Unstructured">Unstructured</option>
+                        </select>
+                        <span class="checkmark" id="check5">✓</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dataIngestion">Mode</label>
+                        <select class="dropdown" id="dataIngestion">
+                            <option value="">Select</option>
+                            <option value="None">None</option>
+                            <option value="Batch">Batch</option>
+                            <option value="RealTime">RealTime</option>
+                        </select>
+                        <span class="checkmark" id="check6">✓</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="etlTool">Tools</label>
+                        <select class="dropdown" id="etlTool">
+                            <option value="">Select</option>
+                            <option value="None">None</option>
+                            <option value="Databricks">Databricks</option>
+                            <option value="Glue">Glue</option>
+                            <option value="EMR">EMR</option>
+                            <option value="AWS Batch">AWS Batch</option>
+                            <option value="AWS Data Pipeline">AWS Data Pipeline</option>
+                            <option value="Lake Formation">Lake Formation</option>
+                            <option value="Athena ETL">Athena ETL</option>
+                            <option value="Flink on Kinesis">Flink on Kinesis</option>
+                            <option value="Data Factory">Data Factory</option>
+                            <option value="Synapse Dataflow">Synapse Dataflow</option>
+                            <option value="SSIS">SSIS</option>
+                            <option value="Azure Stream Analytics">Azure Stream Analytics</option>
+                            <option value="Fabric Pipelines">Fabric Pipelines</option>
+                            <option value="Dataproc">Dataproc</option>
+                            <option value="Dataflow">Dataflow</option>
+                            <option value="Cloud Composer Operators">Cloud Composer Operators</option>
+                            <option value="Vertex AI Pipelines">Vertex AI Pipelines</option>
+                            <option value="Flink on Dataflow">Flink on Dataflow</option>
+                        </select>
+                        <span class="checkmark" id="check7">✓</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="go-button" id="goButton" disabled>Go</button>
+        </div>
+
+        <div class="matrix-container" id="matrixContainer">
+            <div class="matrix-header">
+                <h2>✓ Tech Stack Architecture Matrix</h2>
+                <p>Recommended configuration based on your selections - Click any row to view details</p>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="matrix-table" id="matrixTable">
+                    <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Cloud</th>
+                            <th>Source Type</th>
+                            <th>Mode</th>
+                            <th>Data Ingestion</th>
+                            <th>Workflow Orchestration</th>
+                            <th>Data Transformation</th>
+                            <th>DataLake/Warehouse</th>
+                        </tr>
+                    </thead>
+                    <tbody id="matrixBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="json-container" id="jsonContainer">
+            <div class="json-header">
+                <h3>✓ Row Data Selected</h3>
+                <p>JSON payload ready for API transmission</p>
+            </div>
+            <div class="json-content">
+                <pre class="json-code" id="jsonCode"></pre>
+                <div class="status-badge status-success">✓ Data Sent Successfully</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
